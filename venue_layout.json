@@ -1,0 +1,52 @@
+{
+  "venueName": "Kumbh Mela Ghat Complex - Sector 12",
+  "gridSize": { "rows": 10, "cols": 10 },
+  "zones": [
+    { "id": "A1", "row": 0, "col": 0, "label": "Temple Entrance" },
+    { "id": "A2", "row": 0, "col": 1, "label": "Temple Courtyard" },
+    { "id": "B1", "row": 1, "col": 0, "label": "Holding Area North" },
+    { "id": "B2", "row": 1, "col": 1, "label": "Pathway B" },
+    { "id": "C3", "row": 2, "col": 3, "label": "Food Court" },
+    { "id": "C4", "row": 3, "col": 4, "label": "Bathing Ghat Steps" },
+    { "id": "D5", "row": 4, "col": 5, "label": "River Access Point" },
+    { "id": "E6", "row": 5, "col": 6, "label": "Open Ground East" },
+    { "id": "F7", "row": 6, "col": 7, "label": "Medical Camp" },
+    { "id": "G8", "row": 7, "col": 8, "label": "Parking / Vehicle Zone" },
+    { "id": "H9", "row": 8, "col": 9, "label": "Open Ground South" },
+    { "id": "J10", "row": 9, "col": 9, "label": "Exit Plaza" }
+  ],
+  "gates": [
+    { "id": "Gate 1", "name": "Gate 1 (North Entry)", "x": 5,  "y": 5,  "status": "open" },
+    { "id": "Gate 2", "name": "Gate 2 (East Service)", "x": 480, "y": 240, "status": "open" },
+    { "id": "Gate 3 (Emergency)", "name": "Gate 3 (Emergency Exit)", "x": 480, "y": 480, "status": "open" },
+    { "id": "Gate 4", "name": "Gate 4 (South Exit)", "x": 240, "y": 480, "status": "open" }
+  ],
+  "structures": [
+    { "id": "temple", "label": "Main Temple", "x": 10, "y": 10, "width": 100, "height": 80, "shape": "rect" },
+    { "id": "foodcourt", "label": "Food Court", "x": 180, "y": 60, "width": 90, "height": 70, "shape": "rect" },
+    { "id": "ghat", "label": "Bathing Ghat", "x": 280, "y": 200, "width": 140, "height": 60, "shape": "rect" },
+    { "id": "river", "label": "River", "x": 280, "y": 270, "width": 220, "height": 230, "shape": "rect" },
+    { "id": "medical", "label": "Medical Camp", "x": 380, "y": 380, "width": 80, "height": 60, "shape": "rect" },
+    { "id": "parking", "label": "Parking", "x": 60, "y": 380, "width": 120, "height": 80, "shape": "rect" }
+  ],
+  "routes": {
+    "A": {
+      "description": "Evacuate via North Entry (Gate 1)",
+      "fromZones": ["A1", "A2", "B1", "B2"],
+      "path": [ { "x": 60, "y": 60 }, { "x": 60, "y": 30 }, { "x": 5, "y": 5 } ],
+      "exitGate": "Gate 1"
+    },
+    "B": {
+      "description": "Evacuate via East Service Gate (Gate 2)",
+      "fromZones": ["C3", "D5", "E6"],
+      "path": [ { "x": 230, "y": 100 }, { "x": 380, "y": 180 }, { "x": 480, "y": 240 } ],
+      "exitGate": "Gate 2"
+    },
+    "C": {
+      "description": "Evacuate via Emergency Exit (Gate 3) - PRIORITY ROUTE",
+      "fromZones": ["C4", "F7", "G8", "H9", "J10"],
+      "path": [ { "x": 350, "y": 230 }, { "x": 420, "y": 350 }, { "x": 480, "y": 480 } ],
+      "exitGate": "Gate 3 (Emergency)"
+    }
+  }
+}
